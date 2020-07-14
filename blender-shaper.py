@@ -50,11 +50,11 @@ for curve in bpy.data.curves:
         index = 0
         for point in spline.bezier_points:
             if index == 0:
-                svg += "M "
-                svg += "%f,%f " % (point.co.x * unitMult, point.co.y * unitMult)
+                svg += "\nM "
+                svg += "%f,%f " % (point.co.x * unitMult, -point.co.y * unitMult)
 
             else:
-                svg += "C "
+                svg += "\nC "
                 svg += "%f,%f " % (spline.bezier_points[index-1].handle_right.x * unitMult, -spline.bezier_points[index-1].handle_right.y * unitMult)
                 svg += "%f,%f " % (point.handle_left.x * unitMult, -point.handle_left.y * unitMult)
                 svg += "%f,%f " % (point.co.x * unitMult, -point.co.y * unitMult)
